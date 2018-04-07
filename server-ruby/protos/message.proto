@@ -1,0 +1,21 @@
+// We're using proto3 syntax
+syntax = "proto3";
+
+package sphinyx;
+
+// This is the service for our API
+service ChatService {
+  rpc Connect(ChatRequest) returns (ChatResponse) {}
+  rpc SendMessage(ChatRequest) returns (ChatResponse) {}
+}
+
+message ChatRequest {
+  string id      = 1;
+  string client  = 2;
+  string message = 3;
+}
+
+message ChatResponse {
+  string id      = 1;
+  string message = 2;
+}
